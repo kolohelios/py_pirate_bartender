@@ -36,8 +36,25 @@ def mix_drink(tastes, ingredients):
         if tastes[taste]:
             drink.append(random.choice(ingredients[taste]))
     return drink
+    
+def drink_name():
+    adjectives = ['Salty', 'Fluffy', 'Drowned', 'Scuttled']
+    nouns = ['Shrimp', 'Plank', 'Squid', 'Davy Jones']
+    drink = random.choice(adjectives) + ' ' + random.choice(nouns)
+    return drink
                 
 if __name__ == '__main__':
-    tastes = taste_questions(questions)
-    drink = mix_drink(tastes, ingredients)
-    print(drink)
+    customers = {}
+    name = ''
+    while True:
+        name = ''
+        while (len(name) < 1):
+            name = input('What should I call ye? (or "empty" bar) :')
+        if name == 'empty':
+            exit()
+        elif not(name in customers.keys()):
+            customers[name] = taste_questions(questions)
+        drink = mix_drink(customers[name], ingredients)
+        print('Your ' + drink_name() + ' is made of:')
+        for ingredient in drink:
+            print(ingredient)
