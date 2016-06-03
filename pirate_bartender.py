@@ -21,11 +21,11 @@ def taste_questions(questions):
     for taste in questions:
         valid_answer = False
         while not(valid_answer):
-            value = str(input(questions[taste]))
-            if (value == 'y') or (value == 'yes'):
+            value = str(input(questions[taste] + ' (yes or no): '))
+            if (value == 'y') or (value == 'yes') or (value == 'Y') or (value == 'YES'):
                 tastes[taste] = True
                 valid_answer = True
-            elif (value == 'n') or (value == 'no'):
+            elif (value == 'n') or (value == 'no') or (value == 'N') or (value == 'NO'):
                 tastes[taste] = False
                 valid_answer = True
     return tastes
