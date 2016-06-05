@@ -21,11 +21,11 @@ def taste_questions(questions):
     for taste in questions:
         valid_answer = False
         while not(valid_answer):
-            value = str(input(questions[taste] + ' (yes or no): '))
-            if (value == 'y') or (value == 'yes') or (value == 'Y') or (value == 'YES'):
+            value = str(input(questions[taste] + ' (yes or no): ')).lower()
+            if (value == 'y') or (value == 'yes'):
                 tastes[taste] = True
                 valid_answer = True
-            elif (value == 'n') or (value == 'no') or (value == 'N') or (value == 'NO'):
+            elif (value == 'n') or (value == 'no'):
                 tastes[taste] = False
                 valid_answer = True
     return tastes
@@ -38,8 +38,8 @@ def mix_drink(tastes, ingredients):
     return drink
     
 def drink_name():
-    adjectives = ['Salty', 'Fluffy', 'Drowned', 'Scuttled']
-    nouns = ['Shrimp', 'Plank', 'Squid', 'Davy Jones']
+    adjectives = ['Salty', 'Sassy', 'Fluffy', 'Drowned', 'Scuttled', 'Crusty', 'Sandy']
+    nouns = ['Shrimp', 'Plank', 'Squid', 'Davy Jones', 'Whisker', 'Kraken', '']
     drink = random.choice(adjectives) + ' ' + random.choice(nouns)
     return drink
                 
